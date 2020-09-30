@@ -4,9 +4,11 @@
   "description": "Portal escolar para professores controlar as avaliações aplicadas aos alunos",
   "main": "app.js",
   "scripts": {
-    "test": "jest",
-    "test:staged": "jest",
-    "test:relat": "jest --coverage"
+    "test": "jest --passWithNoTests",
+    "test:staged": "jest --passWithNoTests",
+    "test:relat": "jest --coverage --passWithNoTests",
+    "start:server":"env-cmd node ./src/infra/webserver/server.js",
+    "start":"env-cmd node ./app.js"
   },
   "keywords": [
     "TDD",
@@ -29,6 +31,8 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
     "uuid": "^8.3.0",
     "validator": "^13.1.17"
   }
