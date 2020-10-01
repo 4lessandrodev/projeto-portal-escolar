@@ -40,8 +40,8 @@ module.exports = class User {
     validatePass(this._password);
   }
 
-  static create (id, email, password) {
-    const user = new User(id, email, password);
+  static create (email, password, id = null) {
+    const user = new User(email, password, id);
     return Object.freeze(user);
   }
 };

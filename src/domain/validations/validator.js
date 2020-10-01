@@ -1,4 +1,4 @@
-const { isEmail } = require('validator');
+const { isEmail, isHash } = require('validator');
 const Erro = require('./Error');
 
 const validateEmail = (value) => {
@@ -13,4 +13,8 @@ const validatePass = (pass) => {
   }
 };
 
-module.exports = { validateEmail, validatePass };
+const isHashValue = (value) => {
+  return isHash(value) || value.length >= 60;
+};
+
+module.exports = { validateEmail, validatePass, isHashValue };

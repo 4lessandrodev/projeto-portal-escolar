@@ -1,3 +1,9 @@
 const bcrypt = require('bcrypt');
 const Salt = 10;
-module.exports = (pass) => bcrypt.hashSync(pass, Salt);
+const { isHashValue } = require('../validations/validator');
+module.exports = (pass) => {
+  if (!isHashValue(pass)) {
+    return bcrypt.hashSync(pass, Salt);
+  }
+  return pass;
+};

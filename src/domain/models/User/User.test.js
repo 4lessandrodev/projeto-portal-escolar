@@ -1,3 +1,5 @@
+const EncryptPass = require('../../utils/EncryptPass');
+const validator = require('../../validations/validator');
 const User = require('./User');
 
 describe('User Model', () => {
@@ -28,5 +30,25 @@ describe('User Model', () => {
       user.email = 'invalid_mail@mail.com';
     }
     expect(createUser).toThrow('Cannot assign to read only property \'_email\' of object \'#<User>\'');
+  });
+  test('Não pode criptografar uma senha já criptografada', () => {
+    let user = {};
+    const encriptedPass = EncryptPass('123456');
+    function createUser () {
+      user = User.create('valid_mail@mail.com', encriptedPass);
+    }
+    createUser();
+    expect(user.password).toBe(encriptedPass);
+  });
+  test('Deve criptografar uma senha não criptografada', () => {
+    let user = {};
+    let encriptedPassword = false;
+    function createUser () {
+      user = User.create('valid_mail@mail.com', '123456');
+      encriptedPassword = validator.isHashValue(user.password);
+    }
+    createUser();
+    expect(user.password).not.toBe('123456');
+    expect(encriptedPassword).toBe(true);
   });
 });
