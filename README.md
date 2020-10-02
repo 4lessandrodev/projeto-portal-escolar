@@ -23,6 +23,8 @@
 - ☐ O ALUNO PODE VISUALIZAR O DASHBOARD LIMITADO A VER APENAS SEUS DADOS
 - ☐ NO DASHBOARD O ALUNO DEVE VISUALIZAR QUEM SÃO SEUS PROFESSORES
 
+[![FLOW](./images/flow.png "FLOW")](./images/flow.png "FLOW")
+
 [![LOGIN](./images/LOGIN.jpg "LOGIN")](./images/LOGIN.jpg "LOGIN")
 
 [![ALUNOS](./images/ALUNOS.jpg "LOGIN")](./images/ALUNOS.jpg "ALUNOS")

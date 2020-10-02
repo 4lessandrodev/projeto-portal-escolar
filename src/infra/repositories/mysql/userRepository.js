@@ -1,6 +1,6 @@
 const sequelize = require('sequelize');
 const UserRepository = require('../../../domain/repositories/userRepository');
-const User = require('../../../domain/models/User/User');
+
 module.exports = class extends UserRepository {
   constructor () {
     super();
@@ -9,10 +9,8 @@ module.exports = class extends UserRepository {
   }
 
   async persist (userEntity) {
-    const { email, password } = userEntity;
-    const user = new User(email, password);
-    const result = await this.model.create(user);
-    await result.save();
+    const user = await this.model.create(userEntity);
+    await user.save();
     return user;
   }
 
