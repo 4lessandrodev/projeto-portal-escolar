@@ -1,8 +1,8 @@
 'use strict';
 
-const User = require('../../domain/models/User/User');
+const User = require('../../domain/entities/User/User');
 
-module.exports = (email, password, userRepository) => {
+module.exports = (email, password, { userRepository }) => {
   const user = new User(email, password);
   return userRepository.persist(user);
 };
