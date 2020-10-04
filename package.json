@@ -4,9 +4,10 @@
   "description": "Portal escolar para professores controlar as avaliações aplicadas aos alunos",
   "main": "app.js",
   "scripts": {
-    "test": "jest",
-    "test:staged": "jest",
-    "test:relat": "jest --coverage"
+    "test": "jest --silent",
+    "test:console": "jest",
+    "test:staged": "jest --silent",
+    "test:relat": "jest --silent --coverage"
   },
   "keywords": [
     "TDD",
@@ -26,5 +27,10 @@
     "husky": "^4.3.0",
     "jest": "^26.4.2",
     "lint-staged": "^10.4.0"
+  },
+  "dependencies": {
+    "date-fns": "^2.16.1",
+    "uuid": "^8.3.0",
+    "validator": "^13.1.17"
   }
 }
