@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --silent",
     "test:console": "jest",
-    "test:staged": "jest --silent",
+    "test:staged": "jest --silent --passWithNoTests",
     "test:relat": "jest --silent --coverage"
   },
   "keywords": [
